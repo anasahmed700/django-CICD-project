@@ -1,0 +1,22 @@
+{% extends "flights/base.html" %}
+
+{% block title %} Flight {% endblock %}
+
+    {% block body %}
+    <h1>Flight {{ flight.id }}</h1>
+    <ul>
+        <li>Origin: {{ flight.origin }}</li>
+        <li>Destination: {{ flight.destination }}</li>
+    </ul>
+
+    <h2>Passengers</h2>
+    <ul>
+        {% for passenger in passengers %}
+        <li>{{ passenger }}</li>
+        {% empty %}
+        <li>No Passenger </li>
+        {% endfor %}
+    </ul>
+<!--    'index' = urlpattern name-->
+    <a href="{% url 'index' %}">Back to listing</a>
+    {% endblock %}
